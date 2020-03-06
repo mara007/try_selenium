@@ -41,8 +41,19 @@ public class AppTest {
         WebElement submit = driver.findElement(By.xpath("/html/body/form/input[3]"));
 
         fname.sendKeys(f);
+        sleep(200);
         lname.sendKeys(l);
+        sleep(200);
         submit.click();
+        sleep(200);
+    }
+
+    public void sleep(int ms) {
+        try {
+            Thread.sleep(ms);
+        } catch (InterruptedException e) {
+            // TODO Auto-generated catch block
+        }
     }
 
     @Test
@@ -78,11 +89,7 @@ public class AppTest {
         System.out.println("Add Visitors");
         for (String v : visitors.keySet()) {
             fillVisitor(v, visitors.get(v));
-            try {
-                Thread.sleep(500);
-            } catch (InterruptedException e) {
-                // TODO Auto-generated catch block
-            }
+            sleep(500);
         }
 
         System.out.println("Check Visitors");
